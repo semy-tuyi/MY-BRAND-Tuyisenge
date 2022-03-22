@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css"/>
+    <script src="https://kit.fontawesome.com/f03d41eb21.js" crossorigin="anonymous"></script>
+    <title>write blog</title>
+</head>
+<body>
+    <div class="menu bg colorWhite">
+        <ul class="dashboard">
+            <li class="sized" id="new-article-btn"> new Article</li>
+            <li class="sized" id="query-btn">Query</li>
+            <li class="sized" id="blog-btn">Blog</li>
+            <li class="sized" id=""><i class="fa fa-walking"></i><a href="home.html" class="">LOGOUT</a></li>
+        </ul>
+    </div>
+
+<!--this div is for creating new article-->
+<div class="row" id="newArticle">
+    <img src="images/undraw_ideas_re_7twj.svg" alt="jotdown-ideas" class="svg">
+    <div class="board">
+        <form action="" method="post" class="" id="">
+            <h2 class=" col-secondary center">Write your article</h2>
+            <label for="title" class="col-secondary extra sized">Title</label>
+            <div >
+                <input type="text" name="title" id="" class="text-input extra">
+            </div>
+
+            <label for="author" class="col-secondary extra sized">Author</label>
+            <div class="">
+                <input type="text" name="author" id="" class="writer extra text-input ">
+                <input type="date" name="date" id="" class="date-picker">
+            </div>
+
+            <label for="body" class="col-secondary extra sized">Body</label>
+            <div class="">
+                <textarea name="body" id="" cols="30" rows="10" class="text-input extra"></textarea>
+            </div>
+            <div class="">
+                <label for="image" class="col-secondary sized extra">upload an image</label>
+                <input type="file" name="blog-image" id="" class="col-primary extra">
+            </div>
+            <div class="center colorWhite">
+                <input type="submit" value="UPLOAD" class="btn" >
+            </div>
+            
+        </form>
+    </div>
+</div>
+<!--end of div for creating new article-->
+
+<!-- this div is for blog editing-->
+<div class="" id="blog">
+    <h2 class="center">Blog</h2>
+    <div class="main-box">
+       
+        <div class="card char">
+            <h2 class="sized">UNDERSTAND WORK AND REST HOURS</h2>
+            <P class="col-primary">Written by Samuel <span>18-03-2022</span></P>
+            <img class="" src="images/blog.jpg" alt="article-picture"/>
+            <p>
+                Fatigue is seen as significant contributory factor <br>
+                to many incidents in software deveopment industry. <br>
+                And the aim of the rest hour requirements is <br>to avoid or minimise fatigue
+
+            </p>
+            
+            
+            <div class="manipulate">
+                <i class="fa fa-edit padding"></i>
+                <i class="fa  fa-trash-alt padding"></i>
+            </div>
+            
+
+        </div>
+        <div class="card char">
+            <h2 class="sized">UNDERSTAND WORK AND REST HOURS</h2>
+            <P class="col-primary">Written by Samuel <span>18-03-2022</span></P>
+            <img class="" src="images/blog.jpg" alt="article-picture"/>
+            <p>
+                Fatigue is seen as significant contributory factor <br>
+                to many incidents in software deveopment industry. <br>
+                And the aim of the rest hour requirements is <br>to avoid or minimise fatigue
+
+            </p>
+            
+            
+            <div class="manipulate">
+                <i class="fa fa-edit padding"></i>
+                <i class="fa  fa-trash-alt padding"></i>
+            </div>
+            
+
+        </div>
+        
+    </div>
+</div>
+<!-- end of div for blog editing-->
+
+<!-- thids div is for query-->
+
+<div class="query" id="query">
+    <div class="header rowX">
+        <div class="qdate head">Date</div>
+        <div class="qname head">Names</div>
+        <div class="qemail head">Email</div>
+        <div class="qmessage head">Massage</div>
+    </div>
+    <div class="rowX ">
+        <div class="qdate item char"></div>
+        <div class="qname item char"></div>
+        <div class="qemail item char"></div>
+        <div class="qmessage item char"></div>
+    </div>
+    <div class="rowX ">
+        <div class="qdate item "></div>
+        <div class="qname item"></div>
+        <div class="qemail item"></div>
+        <div class="qmessage item"></div>
+    </div>
+</div>
+<!-- end of div  for query-->
+<!-- this div is for comments-->
+<div id="comments">
+
+</div>
+<!-- end of div  for comments-->
+
+    <div class="footer colorWhite">
+        <div class="l">
+            <span><i class="fa fa-message padding"></i>tuyisengesamy6@gmail.com </span>
+            <span> 
+                <i class="fa fa-facebook padding"></i>
+                <i class="fa fa-linkedin padding"></i>
+            </span>
+            
+        </div>
+        <div class="l">
+            <span> 
+                <i class="fa fa-phone padding"></i>Call me: +250780547458
+            </span>
+            <span> 
+                <i class="fa fa-location padding"></i>Location: RUBAVU-RWANDA
+            </span>
+        </div>
+        
+    </div>
+</body>
+<script src="switch.js"></script>
+</html>
