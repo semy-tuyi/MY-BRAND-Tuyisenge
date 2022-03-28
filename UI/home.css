@@ -224,6 +224,7 @@ body{
     width: 95%;
     min-height:50%;
 }
+/*
 .form {
     
     background-color: #8888;
@@ -241,7 +242,7 @@ form div input{
 }
 form div i{
     background-color: aqua;
-}
+}*/
 label {
     display: block;
     padding-left: .5em;
