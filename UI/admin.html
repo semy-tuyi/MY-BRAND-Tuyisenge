@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css"/>
+    <script src="https://kit.fontawesome.com/aab1045ec6.js" crossorigin="anonymous"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="box">
+        <div class="box-l bg-1 flex-col col-t center">
+            <h1 class="menu blog">Blog</h1>
+            <h3 class="menu char-size clicked dm" id="dashboard-menu">Dashboard</h3>
+            <h3 class="menu char-size clicked pm" id="posts-menu">Posts</h3>
+            <h3 class="menu char-size clicked cm" id="new-post-menu">Create new post</h3>
+            <h3 class="menu char-size clicked qm" id="query-menu">Query</h3>
+            <h3 class="menu char-size" id="setting">Setting</h3>
+            <img src="images/undraw_online_organizer_re_156n.svg" alt="admin-graphic">
+        </div>
+    
+
+<!-- middle box1-->
+
+        <div class="dash box-m flex-col bg-2 center" id="dashboard-box">
+            <div class="search-input bg-3 width flex-row center">
+                <input type="text" name="search" placeholder="Search article..." class="srch">
+                <i class="fa fa-search col-s"></i>
+            </div>
+            <div class="statistics flex-row margin">
+                <div class="post stat-box bg-3 center">
+                    <section class="">
+                        <i class="fa fa-file-alt stat-icon"></i>
+                        <p class="number">20</p>
+                    </section>
+                    <h3 class="">Posts</h3>
+                </div>
+                <div class="comments stat-box bg-3 center">
+                    <section class="">
+                        <i class="fa fa-comments stat-icon"></i>
+                        <p class="number">300</p>
+                    </section>
+                    <h3 class="char-size ">comments</h3>
+                </div>
+                <div class="likes stat-box bg-3 center" >
+                    <section class="">
+                        <i class="fa fa-heart stat-icon"></i>
+                        <p class="number">120</p>
+                    </section>
+                    <h3 class="char-size">Likes</h3>
+                </div>
+                <div class="viewers stat-box bg-3 center">
+                    <section class="">
+                        <i class="fa fa-eye stat-icon"></i>
+                        <p class="number">500</p>
+                    </section>
+                    <h3 class="char-size">Views</h3>
+                </div>
+            </div>
+            <div class="graph bg-3 flex-col margin scroll">
+                <div class="graph-head ">
+                    <h3 class="char-size">Site visitors</h3>
+                    <select name="period" class="period" id="">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+                <div class="graph-chart">
+                    <img src="images/graph.png" alt="views-graph">
+                </div>
+            </div>
+            <div class="recent-article flex-col bg-3 width-m margin scroll">
+                <h3 class="">Recent Articles</h3>
+                <div class="articles scrol">
+                    <table>
+                        <tr>
+                            <th class="mg-r char-size">No</th>
+                            <th class="mg-r char-size">Article title</th>
+                            <th class="mg-r char-size">Post date</th>
+                            <th class="mg-r char-size">Comments</th>
+                            <th class="mg-r char-size">Likes</th>
+                            <th class="mg-r char-size">Views</th>
+                            
+                        </tr>
+                        <tr>
+                            <td class="mg-r char-size">1</td>
+                            <td class="mg-r char-size title-w">Good morning</td>
+                            <td class="mg-r char-size">20-03-2022</td>
+                            <td class="mg-r char-size">100 k</td>
+                            <td class="mg-r char-size">20</td>
+                            <td class="mg-r char-size">300</td>
+                            
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+<!-- middle box2-->
+<div class="posts box-m flex-col bg-2 center" id="posts-box">
+    <div class="search-input bg-3 width flex-row center">
+        <input type="text" name="search" placeholder="Search post..." class="srch">
+        <i class="fa fa-search col-s"></i>
+    </div>
+    <div class="post-content flex-col bg-3 margin">
+        <h3 class="char-size">Posts</h3>
+        <div class="post-list scrol">
+            <table>
+                <tr>
+                    <th class="mg-r char-size">No</th>
+                    <th class="mg-r char-size ">Article title</th>
+                    <th class="mg-r char-size">Post date</th>
+                    <th class="mg-r char-size">Comments</th>
+                    <th class="mg-r char-size">Likes</th>
+                    <th class="mg-r char-size">Views</th>
+                    <th class="mg-r char-size">Actions</th>
+                </tr>
+                <tr>
+                    <td class="mg-r char-size">1</td>
+                    <td class="mg-r char-size title-w">Good morning</td>
+                    <td class="mg-r char-size">20-03-2022</td>
+                    <td class="mg-r char-size">100 k</td>
+                    <td class="mg-r char-size">20</td>
+                    <td class="mg-r char-size">300</td>
+                    <td class="mg-r char-size">
+                        <i class="fa fa-pencil" id="edit"></i>
+                        <i class="fa fa-trash " id="delete"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mg-r char-size">1</td>
+                    <td class="mg-r char-size title-w">Good morning</td>
+                    <td class="mg-r char-size">20-03-2022</td>
+                    <td class="mg-r char-size">100 k</td>
+                    <td class="mg-r char-size">20</td>
+                    <td class="mg-r char-size">300</td>
+                    <td class="mg-r char-size">
+                        <i class="fa fa-pencil " id="edit"></i>
+                        <i class="fa fa-trash " id="delete"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mg-r char-size">1</td>
+                    <td class="mg-r char-size title-w">Good morning</td>
+                    <td class="mg-r char-size">20-03-2022</td>
+                    <td class="mg-r char-size">100 k</td>
+                    <td class="mg-r char-size">20</td>
+                    <td class="mg-r char-size">300</td>
+                    <td class="mg-r char-size">
+                        <i class="fa fa-pencil " id="edit"></i>
+                        <i class="fa fa-trash " id="delete"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mg-r char-size">1</td>
+                    <td class="mg-r char-size title-w">Good morning</td>
+                    <td class="mg-r char-size">20-03-2022</td>
+                    <td class="mg-r char-size">100 k</td>
+                    <td class="mg-r char-size">20</td>
+                    <td class="mg-r char-size">300</td>
+                    <td class="mg-r char-size">
+                        <i class="fa fa-pencil " id="edit"></i>
+                        <i class="fa fa-trash " id="delete"></i>
+                    </td>
+                </tr>
+                
+            </table>
+
+        </div>
+    </div>
+    <div class="graphic-m  bg-1 width-m margin">
+        <img src="images/undraw_personal_settings_re_i6w4.svg" alt="personal-settings">
+    </div>
+</div>
+<!-- middle box3-->
+<div class="create-post box-m bg-2" id="create-post-box">
+    <form action="" method="post" class="center margin" >
+        <h2 class="col-p ">Write your article</h2>
+        
+        <div class="margin">
+            <input type="text" name="title" id="" class="text-input" placeholder="Title">
+        </div>
+
+        
+        <div class="margin">
+            <input type="text" name="author" id="" class="text-input" placeholder="Author">
+        </div>
+
+        
+        <div class="margin height">
+            <textarea name="body" id="" cols="30" rows="10" class="text-input height-input" placeholder="Body"></textarea>
+        </div>
+        <div class="margin">
+            <label for="image" class="col-p">upload an image</label>
+            <input type="file" name="blog-image" id="" class="">
+        </div>
+        <div class="margin">
+            <input type="submit" value="UPLOAD" class="btn" >
+        </div>
+        
+    </form>
+</div>
+<!-- middle box4-->
+<div class="query box-m flex-col bg-2" id="query-box">
+    <div class="search-input bg-3 width flex-row center">
+        <input type="text" name="search" placeholder="Search query..." class="srch">
+        <i class="fa fa-search col-s"></i>
+    </div>
+    <div class="query-content flex-col scrol">
+        
+        <div class="query-item bg-3 margin">
+            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
+            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
+            <div class="message margin">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
+                voluptatum quas nulla quam unde quo, repellat culpa, <br>
+                quibusdam in blanditiis iste architecto corrupti!
+            </div>
+            <i class="col-s margin">Reply</i>
+            
+        </div>
+        <div class="query-item bg-3 margin">
+            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
+            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
+            <div class="message margin">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
+                voluptatum quas nulla quam unde quo, repellat culpa, <br>
+                quibusdam in blanditiis iste architecto corrupti!
+            </div>
+            <i class="col-s margin">Reply</i>
+            
+        </div>
+        <div class="query-item bg-3 margin">
+            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
+            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
+            <div class="message">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
+                voluptatum quas nulla quam unde quo, repellat culpa, <br>
+                quibusdam in blanditiis iste architecto corrupti!
+            </div>
+            <i class="col-s margin">Reply</i>
+            
+        </div>
+       
+    </div>
+    <div class="graphic-m  bg-1 width-m temp">
+        <img src="images/undraw_personal_settings_re_i6w4.svg" alt="personal-settings">
+    </div>
+</div>
+<!-- right side box-->
+        <div class="box-r flex-col">
+            <div class="admin-icon flex-col">
+                <i class="fa fa-user pp"></i>
+                <h3 class="col-t menu char-size">LOGOUT</h3>
+            </div>
+            <div class="recent-comments flex-row bg-3">
+                <h3 class="">Recent Comments</h3>
+                <div class="comment-content"></div>
+            </div>
+            <div class="subscription bg-3 margin center">
+                <h2 class="col-1 ">100 </h2>
+                <h2 class="col-2 ">Subscribers</h2>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

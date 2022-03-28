@@ -5,32 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css"/>
-    <script src="https://kit.fontawesome.com/f03d41eb21.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/aab1045ec6.js" crossorigin="anonymous"></script>
 
     <title>Tuyisenge Samuel</title>
 </head>
 <body>
-    <div class="menu bg colorWhite">
-        <ul>
+    <nav class="menu bg colorWhite">
+       
+        <ul class="topNav" id="menu">
             <li class="sized"><a href="#infor"> Home</a></li>
             <li class="sized"><a href="#project">Project</a></li>
             <li class="sized"><a href="#blog-link">Blog</a></li>
             <li class="sized"><a href="#about">About</a></li>
             <li class="sized"><a href="#contact">Contact</a></li>
         </ul>
-    </div>
+    </nav>
     <div class="infor" id="infor">
        
 
         <div class="title col1">
-            <h2>Hello My name is Tuyisenge Samuel.
+            <h2 class="title">Hello My name is Tuyisenge Samuel.
                 I'm happy to see you here.
             </h2>
-            <p>
-                I am a Full-stack software engineer. <br> I can convert any project idea
-                into useful software, <br> and I can help you to add new features to pre-existing software.
+            <p class="title">
+                I am a Full-stack software engineer.  I can convert any project idea
+                into useful software,  and I can help you to add new features to pre-existing software.
             </p>
-            <p>Meet me on social network 
+            <p class="title">Meet me on social network 
                 <i class="fa fa-facebook social-network"></i>
                 <i class="fa fa-linkedin social-network"></i>
                 <i class="fa fa-whatsapp social-network"></i>
@@ -39,7 +40,10 @@
         <div class="col2">
             <img class= "profile" src="images/profile.png" alt="profile-photo">   
         </div>
-            <a class = "login" href="login.html">LOGIN</a> 
+        <div class="login center">
+            <a class = "" href="login.html">LOGIN</a> 
+
+        </div>
        
     </div>
 
@@ -85,7 +89,7 @@
 
     <h2 class="center">Blog</h2>
     <div class="main-box" id="blog-link">
-        <div class="card">
+        <div class="card"> 
             <h2 class="sized">UNDERSTAND WORK AND REST HOURS</h2>
             <P class="col-primary">Written by Samuel <span>18-03-2022</span></P>
             <img class="" src="images/blog.jpg" alt="article-picture"/>
@@ -105,10 +109,10 @@
             <h2 class="sized">UNDERSTAND WORK AND REST HOURS</h2>
             <P class="col-primary">Written by Samuel <span>18-03-2022</span></P>
             <img class="" src="images/blog.jpg" alt="article-picture"/>
-            <p>
+            <p >
                 Fatigue is seen as significant contributory factor <br>
-                to many incidents in software deveopment industry. <br>
-                And the aim of the rest hour requirements is <br>to avoid or minimise fatigue
+                to many incidents in software deveopment industry.<br> 
+                And the aim of the rest hour requirements is to<br> avoid or minimise fatigue
 
             </p>
             
@@ -124,7 +128,7 @@
                 <img class="profile" src="images/k.png" alt="profile-pic">
             </div>
             <div class="about-content">
-                <h2 >About me</h2>
+                <h2 class="sized center">About me</h2>
                 <p class="sized">Collaborative, responsible, detail-oriented, 
                     and growth mindset are the top four 
                     adjectives that best define my aptitude towards work
@@ -164,7 +168,7 @@
             <div class="message">
                 <textarea name="message" class="msg"id="massage" cols="30" rows="10" placeholder="Your message here..."></textarea>
             </div>
-            <input type="submit" value="Send me a message" class="btn submit char">
+            <input type="submit" value="Send me a message" class="btn submit">
         </form>
     </div>
     <div class="footer colorWhite">
@@ -187,4 +191,5 @@
         
     </div>
 </body>
+
 </html>

@@ -5,35 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css"/>
-    <script src="https://kit.fontawesome.com/f03d41eb21.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/aab1045ec6.js" crossorigin="anonymous"></script>
     <title>login</title>
 </head>
 <body>
-    <div class="menu bg colorWhite">
-        <ul>
-            <li class="sized"><a href="home.html "> Home</a></li>
-            <li class="sized"><a href="home.html ">Project</a></li>
-            <li class="sized"><a href="home.html">Blog</a></li>
-            <li class="sized"><a href="home.html">About</a></li>
-            <li class="sized"><a href="home.html">Contact</a></li>
+    <nav class="menu bg colorWhite">
+       
+        <ul class="topNav" id="menu">
+            <li class="sized"><a href="#infor"> Home</a></li>
+            <li class="sized"><a href="#project">Project</a></li>
+            <li class="sized"><a href="#blog-link">Blog</a></li>
+            <li class="sized"><a href="#about">About</a></li>
+            <li class="sized"><a href="#contact">Contact</a></li>
         </ul>
-    </div>
-    <div class="row">
-        <form action="" method="post"  class="form-control" >
-            <label for="username" class="sized col-secondary extra">Username</label>
+    </nav>
+    <div class="">
+        <form action="#" method="post"  class="" >
 
+            <label for="username" class="sized col-secondary extra ">Username</label>
             <div >
+                <!--<i class="far fa-envelope"></i>-->
                 <input type="text" name="username" id="username" class="text-input extra">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
             </div>
-            <label for="password" class="sized col-secondary extra" class="text-input extra">Password</label>
+
+            <label for="password" class="sized col-secondary extra ">Password</label>
             <div>
+                <!--<i class="fas fa-lock"></i>-->
                 <input type="password" name="password" id="password" class="text-input extra">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
             </div>
             <div class="center">
-                <input type="submit" value="LOGIN" class="btn colorWhite center">
+                <input type="submit" value="LOGIN" class="btn colorWhite center" id="submit">
             </div>
         </form>
-        <img src="images/undraw_my_password_re_ydq7.svg" alt="mypassward" >
+        <!--<img src="images/undraw_my_password_re_ydq7.svg" alt="mypassward" >-->
     </div>
     <div class="footer colorWhite">
         <div class="l">
@@ -54,5 +64,8 @@
         </div>
         
     </div>
+    <script>
+        
+    </script>
 </body>
 </html>
