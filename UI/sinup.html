@@ -9,31 +9,37 @@
     <title>Sinup</title>
 </head>
 <body>
-    <div class="blog-menu bg">
+    <div class=" blog-menu bg">
         <div class="tblog bm">Blog</div>
         <div class="bm"><a href="articles.html">Articles</a> </div>
         <div class="bm"><a href="home.html">About us</a></div>
         <div class="bm"><a href="sinup.html">Sinup</a></div>
     </div>
-    <div class="row">
-        <form action="" method="post"  class="form-control" >
-            <label for="username" class="sized col-secondary extra">First name</label>
-
-            <div >
-                <input type="text" name="username" id="username" class="text-input extra">
+    <div class="">
+        <form id="sinup-form" class="form" >
+            <div class="form-control">
+                <label for="first-name">Fisrt Name</label>
+                <input type="text" placeholder="" id="first-name" />
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
-            
-            <label for="email" class="sized col-secondary extra" class="text-input extra">Email</label>
-            <div>
-                <input type="email" name="email" id="email" class="text-input extra">
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" placeholder="" id="email" />
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
-
-            <label for="password" class="sized col-secondary extra" class="text-input extra">Password</label>
-            <div>
-                <input type="password" name="password" id="password" class="text-input extra">
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" placeholder="" id="user-password" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
             <div class="center">
-                <input type="submit" value="SinUp" class="btn colorWhite center">
+                <input type="submit" value="SINUP" class="btn colorWhite center" id="sinup">
             </div>
         </form>
         
@@ -58,4 +64,5 @@
         
     </div>
 </body>
+<script src="js-files/sinup.js"></script>
 </html>

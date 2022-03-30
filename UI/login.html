@@ -12,32 +12,29 @@
     <nav class="menu bg colorWhite">
        
         <ul class="topNav" id="menu">
-            <li class="sized"><a href="#infor"> Home</a></li>
-            <li class="sized"><a href="#project">Project</a></li>
-            <li class="sized"><a href="#blog-link">Blog</a></li>
-            <li class="sized"><a href="#about">About</a></li>
-            <li class="sized"><a href="#contact">Contact</a></li>
+            <li class="sized"><a href="home.html"> Home</a></li>
+            <li class="sized"><a href="home.html">Project</a></li>
+            <li class="sized"><a href="home.html">Blog</a></li>
+            <li class="sized"><a href="home.html">About</a></li>
+            <li class="sized"><a href="home.html">Contact</a></li>
         </ul>
     </nav>
     <div class="">
-        <form action="#" method="post"  class="" >
+        <form id="login-form" class="form">
 
-            <label for="username" class="sized col-secondary extra ">Username</label>
-            <div >
-                <!--<i class="far fa-envelope"></i>-->
-                <input type="text" name="username" id="username" class="text-input extra">
-                <i class="fas fa-exclamation-circle failure-icon"></i>
-                <i class="far fa-check-circle success-icon"></i>
-                <div class="error"></div>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" placeholder="username" id="username" />
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
-
-            <label for="password" class="sized col-secondary extra ">Password</label>
-            <div>
-                <!--<i class="fas fa-lock"></i>-->
-                <input type="password" name="password" id="password" class="text-input extra">
-                <i class="fas fa-exclamation-circle failure-icon"></i>
-                <i class="far fa-check-circle success-icon"></i>
-                <div class="error"></div>
+            <div class="form-control ">
+                <label for="password">Password</label>
+                <input type="password" placeholder="" id="password" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
             <div class="center">
                 <input type="submit" value="LOGIN" class="btn colorWhite center" id="submit">
@@ -64,8 +61,6 @@
         </div>
         
     </div>
-    <script>
-        
-    </script>
+    <script src="js-files/login.js"></script>
 </body>
 </html>

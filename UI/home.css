@@ -85,7 +85,7 @@ body{
     background-color: #9606b3;
     padding: .5rem;
     border-radius: 5px;
-    width: 10rem;
+    width: 100%;
     font-weight: bold;
 }
 .row{
@@ -167,7 +167,7 @@ body{
     color: #450247;
     background-color: bisque;
     margin-top: 10px;
-    
+    width:20%
 }
 .text-input{
     padding: 1rem;
@@ -216,65 +216,124 @@ body{
 
 }
 
-.form-control{
-    background-color: lime;
-    border-radius: 1rem;
-    padding: 1%;
-    margin:.5rem;
-    width: 95%;
-    min-height:50%;
-}
-/*
+/*Forms*/
 .form {
-    
-    background-color: #8888;
-    padding: 1%;
+	padding: 25px 40px;	
+    background-color: #777;
+    border-radius: 1%;
+    margin-inline: 10%;
+    margin-block: 10%;
 }
-form div {
+.form-control {
+    
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
+.contact-me{
+	position: relative;
+}
+.form-control label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.form-control input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	width: 100%;
+}
+.form-control input:focus {
+	outline: 0;
+	border-color: #777;
+}
+.form-control.success input {
+	border-color: #2ecc71;
+}
+
+.form-control.error input {
+	border-color: #e74c3c;
+}
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+.form-control.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+.form-control small {
     max-width: 100%;
-    margin: .5em;
-    background-color: lime;
+    font-size: 16px;
+	color: #e74c3c;
+    color: #9606b3;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
 }
-form div input{
-    width: 100%;
-    background-color: blue;
-    min-height:10px;
+.contact-me small{
+    color: #e74c3c;
+	position: absolute;
+	bottom: 0;
+	left: 20rem;
+	visibility: hidden;
 }
-form div i{
-    background-color: aqua;
-}*/
-label {
-    display: block;
-    padding-left: .5em;
-    font-size: 2em;
-    /*margin-bottom: 1rem;*/
-  }
-  .success-icon,
-  .failure-icon {
-    right: 0;
-    opacity: .2;
-  }
-  
-  .failure-icon,
-  .error {
-    color: red;
-    background-color: cyan;
-    
-  }
-  
-  .success-icon {
-    color: green;
-  }
-  .error {
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  input:focus {
-    border: 2px solid #f2796e;
-  }
+.form-control.error small {
+	visibility: visible;
+}
+.contact-me.error small{
+    visibility: visible;
+}
+/*Blog*/
+.blog-menu{
+    padding:2rem;
+    background: url('https://images.pexels.com/photos/40784/drops-of-water-water-nature-liquid-40784.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center;
+    background-size: cover;
+}
+.bm{
+    padding-right:40px;
+    font-weight: bold;
+    font-size:2rem;
+}
 
-  
+.bm a{
+    text-decoration: none;
+    padding: 5px;
+    color:#9606b3;
+    margin-bottom:-1px ;
+}
+.tblog{
+    font-size:15vh;
+    color:#9606b3;
+}
+.paper{
+    padding: 2%;
+}
+.blog-image{
+    max-width: 90%;
+    height:40vh;
+    border-radius:5px;
+}
 
+
+
+.card-sized{
+    font-size:1em;
+    max-width:90%;
+    margin:5%;
+    border: #8888 1px solid; 
+}
 @media (min-width:720px){
     .menu ul{
         display: flex;
@@ -329,7 +388,6 @@ label {
         flex-flow: row wrap;
         justify-content: space-around;
         margin-top: 1rem;
-        
     }
     .btn{
         padding: 1rem;
@@ -338,15 +396,61 @@ label {
        position: relative;
        display: none;
    }
+   .form {
+    background-color: #777;
+    border-radius: 1%;
+    margin-inline: 30%;
+    margin-block: 10%;
+    max-width: 50%;
+    justify-content: center;
+    align-self: center;
+    }
+    .blog-menu{
+    display: flex;
+    flex-flow:row;
+    justify-content: flex-end;
+    padding:1%;
+    background: url('https://images.pexels.com/photos/40784/drops-of-water-water-nature-liquid-40784.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center;
+    background-size: cover;
+    align-items: flex-end;
+    position: relative;
+    min-height: 20%;
+    }
+    .tblog{
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        margin-right: 1%;
+    }
+    .blog-image{
+        width:60vw;
+        height:50vh;
+        border-radius:5px;
+    }
     
+    .text{
+        max-width: 80%;
+        margin-left: 20%;
+    }
+    .article-container{
+        display:flex;
+        flex-flow:row wrap;
+        justify-content:space-around;
+        padding:10px;
+    }
 }
-
+  
 /*
 
 .icons i{
     color: #9606b3;
     font-size: 2rem;
     margin-right: 15rem;
+}
+.text{
+    width: 60%;
+    margin-left: 2%;
+    margin-right: 10%;
 }
 
 .main-box{
@@ -412,63 +516,9 @@ label {
     box-shadow: 5px 5px #8888;
     border: #8888 solid 1px;
 }
-.text{
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 10%;
-}
-.blog-menu{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    padding:20px;
-    background: url('https://images.pexels.com/photos/40784/drops-of-water-water-nature-liquid-40784.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center;
-    background-size: cover;
-    align-items: flex-end;
-}
 
-.bm{
-    padding-right:40px;
-    font-weight: bold;
-    font-size:30px;
 
-}
 
-.bm a{
-    text-decoration: none;
-    padding: 5px;
-    color:#9606b3;
-    margin-bottom:-1px ;
-}
-.tblog{
-    font-size:15vh;
-    color:#9606b3;
-    margin-right:40%;
-}
-.blog-image{
-    width:50vw;
-    height:55vh;
-    border-radius:5px;
-}
-.paper{
-    font-size:1vw
-}
-.article-container{
-    display:flex;
-    flex-flow:row wrap;
-    justify-content:space-around;
-    padding:10px;
-}
-.card-sized{
-    font-size:1vw;
-    width:28%;
-    margin:10px;
-    border: #8888 1px solid; 
-}
-.commenting-box{
-    margin-left:1%;
-    padding: 10px;
-}
 .commenting-box input{
     margin: 10px;
     color: #f0f0f0;
@@ -483,25 +533,13 @@ label {
   }
   
 */
-form div {
-    position: relative;
-    margin-bottom: 1rem;
+/*.form-control{
+    background-color: lime;
+    border-radius: 1rem;
+    padding: 1%;
+    margin:.5rem;
+    width: 95%;
+    min-height:50%;
+}*/
 
-  }
-  
-  form div i {
-    position: absolute;
-    padding: 10px;
-   
-  }
-  
-/*
-navigation bar
-
-*/
-
-
-
-  
-  
  
