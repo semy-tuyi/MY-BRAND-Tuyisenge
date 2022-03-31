@@ -102,7 +102,7 @@ body{
 }
 .skills{
     border: #8888 solid 1px;
-    box-shadow: 5px 5px#8888;
+    box-shadow: 5px 5px #8888;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -409,13 +409,14 @@ body{
     display: flex;
     flex-flow:row;
     justify-content: flex-end;
-    padding:1%;
+    padding:3%;
     background: url('https://images.pexels.com/photos/40784/drops-of-water-water-nature-liquid-40784.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center;
     background-size: cover;
     align-items: flex-end;
     position: relative;
-    min-height: 20%;
+    /*height: 20%;*/
     }
+    
     .tblog{
         position: absolute;
         left: 20px;
