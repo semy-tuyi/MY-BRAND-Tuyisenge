@@ -174,8 +174,8 @@ body{
     border-radius: .5rem;
     width: 30%;
     border-color:#f0f0f0;
- }
- .char{
+}
+.char{
     font-size: 3rem;
 }
 .profile-pic{
@@ -213,7 +213,6 @@ body{
 .login a{
     text-decoration: none;
     color:#f0f0f0;
-
 }
 
 /*Forms*/
@@ -230,9 +229,7 @@ body{
 	padding-bottom: 20px;
 	position: relative;
 }
-.contact-me{
-	position: relative;
-}
+
 .form-control label {
 	display: inline-block;
 	margin-bottom: 5px;
@@ -246,10 +243,17 @@ body{
 	padding: 10px;
 	width: 100%;
 }
+
 .form-control input:focus {
 	outline: 0;
 	border-color: #777;
 }
+
+.form-div input:focus, textarea:focus{
+    outline: 0;
+    border-color: #777;
+}
+
 .form-control.success input {
 	border-color: #2ecc71;
 }
@@ -257,6 +261,7 @@ body{
 .form-control.error input {
 	border-color: #e74c3c;
 }
+
 .form-control i {
 	visibility: hidden;
 	position: absolute;
@@ -275,26 +280,40 @@ body{
 .form-control small {
     max-width: 100%;
     font-size: 16px;
-	color: #e74c3c;
     color: #9606b3;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	visibility: hidden;
 }
-.contact-me small{
-    color: #e74c3c;
+.form-div.message.error{
+	position: relative;
+    min-height: 35vh;  
+}
+.form-div.txt.error{
+	position: relative;
+    min-height: 11vh;
+}
+.form-div.success input, textarea{
+    border-color:#2ecc71;
+}
+
+.form-div.error input, textarea{
+    /*border-color: #e74c3c;*/
+    border-color: red;
+}
+.form-div small{
+    /*color: #e74c3c;*/
+    color: red;
 	position: absolute;
-	bottom: 0;
-	left: 20rem;
+    bottom:5%;
+	left: 6rem;
 	visibility: hidden;
 }
-.form-control.error small {
+.form-div.error small {
 	visibility: visible;
 }
-.contact-me.error small{
-    visibility: visible;
-}
+
 /*Blog*/
 .blog-menu{
     padding:2rem;
@@ -326,13 +345,22 @@ body{
     border-radius:5px;
 }
 
-
-
 .card-sized{
     font-size:1em;
     max-width:90%;
+    height: 300px;
     margin:5%;
     border: #8888 1px solid; 
+    overflow: hidden;
+}
+#loginForm{
+    display: none;
+}
+#login-choice{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #9606b3;
 }
 @media (min-width:720px){
     .menu ul{
@@ -390,8 +418,9 @@ body{
         margin-top: 1rem;
     }
     .btn{
-        padding: 1rem;
+        padding: .7rem;
     }
+    
    .icon{
        position: relative;
        display: none;
@@ -416,7 +445,20 @@ body{
     position: relative;
     /*height: 20%;*/
     }
-    
+    .card-sized{
+        font-size:1em;
+        max-width:350px;
+        max-height: 400px;
+        margin:10px;
+        padding-block: 20px;
+        border: #8888 1px solid; 
+        overflow: hidden;
+    }
+    .card img{
+        height: 25vw;
+        width: 25vw;
+        border-radius: 5px;
+    }
     .tblog{
         position: absolute;
         left: 20px;
@@ -439,108 +481,8 @@ body{
         justify-content:space-around;
         padding:10px;
     }
+    .form-div small{
+        left: 15rem;
+    }
 }
   
-/*
-
-.icons i{
-    color: #9606b3;
-    font-size: 2rem;
-    margin-right: 15rem;
-}
-.text{
-    width: 60%;
-    margin-left: 2%;
-    margin-right: 10%;
-}
-
-.main-box{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 2%;
-}
-
-.manipulate i{
-    font-size: 2rem;
-}
-.board{
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    width: 50%;
-}
-
-
-.date-picker{
-    width: 15%;
-    border-radius: 5px;
-    height: 2.5em;
-   border-color:#f0f0f0;
-   margin-left: 10%;
-}
-.writer{
-    width: 50%;
-}
-.svg{
-    width: 30%;
-    height: 100%;
-
-}
-.query{
-    height: 70vh;
-    width: 100%;
-}
-.head{
-    background-color: #8888;
-    border-radius: 5px;
-    margin: 5px;
-    padding: 20px;
-    font-weight: bold;
-}
-.qdate{
-    width: 10%;
-}
-.qname{
-    width: 20%;
-}
-.qemail{
-    width: 20%;
-}
-.qmessage{
-    width: 25%;
-}
-.item{
-    font-size: 18px;
-    padding: 20px;
-    margin:5px;
-    border-radius: 5px;
-    box-shadow: 5px 5px #8888;
-    border: #8888 solid 1px;
-}
-
-
-
-.commenting-box input{
-    margin: 10px;
-    color: #f0f0f0;
-    font-weight: 500;
-}
-
-  
-  .title {
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-*/
-/*.form-control{
-    background-color: lime;
-    border-radius: 1rem;
-    padding: 1%;
-    margin:.5rem;
-    width: 95%;
-    min-height:50%;
-}*/
-
- 

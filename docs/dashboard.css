@@ -168,7 +168,7 @@ table th{
     padding: 1%;
     max-width: 100%;
    border-radius: 1rem;
-   text-align:center;
+   text-align:start;
    min-height: 80%; 
    font-size: .7rem;
    margin-inline:0;
@@ -205,7 +205,19 @@ table th{
 .graphic-m{
     display: none;
 }
-
+.card-sized{
+    padding: 10px;
+    margin: 10px;
+    font-size:16px;
+    width:300px;
+    height: 350px;
+    border: #8888 1px solid; 
+    overflow: hidden;
+}
+.card-sized img{
+    width: 40vw;
+    height: 40vw;
+}
 @media (min-width: 800px){
     body{
         padding:.5%;
@@ -302,7 +314,19 @@ table th{
     .pp{
         font-size: 5vw;
     }
-   
+    .card-sized{
+        padding: 10px;
+        margin: 10px;
+        font-size:16px;
+        width:300px;
+        height: 350px;
+        border: #8888 1px solid; 
+        overflow: hidden;
+    }
+    .card-sized img{
+        width: 15vw;
+        height: 10vw;
+    }
    
 }
 @media (min-width:360px){
@@ -319,29 +343,50 @@ table th{
        font-size:1.2em ;
     }
 }
+.form-control {
+    
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
 
 
+.form-control input ,
+.form-control textarea {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	width: 95%;
+}
+
+.form-control input:focus, textarea:focus {
+	outline: 0;
+	border-color: #777;
+}
+
+.form-control.success input {
+	border-color: #2ecc71;
+}
+
+.form-control.error input,
+.form-control.error textarea {
+	border-color: #e74c3c;
+}
 
 
+.form-control small {
+    max-width: 100%;
+    font-size: 16px;
+    color: #9606b3;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+.form-control.error small{
+    visibility: visible;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.dash { display:block;}
-.posts {display:none;}
-.create-post {display:none;}
-.query {display:none;}*/

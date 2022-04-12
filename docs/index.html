@@ -11,7 +11,6 @@
 </head>
 <body>
     <nav class="menu bg colorWhite">
-       
         <ul class="topNav" id="menu">
             <li class="sized"><a href="#infor"> Home</a></li>
             <li class="sized"><a href="#project">Project</a></li>
@@ -42,7 +41,6 @@
         </div>
         <div class="login center">
             <a class = "" href="login.html">LOGIN</a> 
-
         </div>
        
     </div>
@@ -59,7 +57,7 @@
                 <i>CSS</i>
             </div>
             
-            <a href="#" class="btn">More description</a>
+            <a href="#" class="btn d">More description</a>
             
         </div>
         <div class="card">
@@ -71,7 +69,7 @@
             <i>CSS</i>
             </div>
             
-            <a href="#" class="btn">More description</a>
+            <a href="#" class="btn d">More description</a>
             
         </div>
         <div class="card">
@@ -89,7 +87,7 @@
 
     <h2 class="center">Blog</h2>
     <div class="main-box" id="blog-link">
-        <div class="card"> 
+       <!-- <div class="card"> 
             <h2 class="sized">UNDERSTAND WORK AND REST HOURS</h2>
             <P class="col-primary">Written by Samuel <span>18-03-2022</span></P>
             <img class="" src="images/blog.jpg" alt="article-picture"/>
@@ -121,6 +119,7 @@
 
 
         </div>
+    -->
     </div>
     <div class="padding">
         <div class="container" id="about">
@@ -147,7 +146,6 @@
             <h3 class="sized">Languages:</h3>
             <div class="row">
                 Javascript<div class="progress"><div class="level js"></div></div> 
-
             </div>
             <div class="row">
                 HTML<div class="progress"><div class="level html"></div></div> 
@@ -159,18 +157,18 @@
        
     </div>
     <div class="contact-me" id="contact">
-        <form action="post" class=" center">
+        <form action="post" class=" center" id="contact-form">
             <h2 class="colorWhite">I would like to hear from you:</h2>
-            <div class="center contact-me">
+            <div class="center form-div txt">
                 <input type="text" name="names" class="text-input" id="names" placeholder="Full name">
-                <input type="email" name="email-address" class="text-input" id="email-address" placeholder="Email Address">
-                <small>Error Message</small>
+                <input type="email" name="email-address" class="text-input" id = "email" placeholder="Email Address">
+                <small >Error Message</small>
             </div>
-            <div class="message contact-me">
-                <textarea name="message" class="msg"id="massage" cols="30" rows="10" placeholder="Your message here..."></textarea>
-                <small>Error Message</small>
+            <div class="message form-div ">
+                <textarea name="message" class="msg"id="contact-message" cols="30" rows="10" placeholder="Your message here..."></textarea>
+                <small >Error Message</small>
             </div>
-            <input type="submit" value="Send me a message" class="btn submit">
+            <input type="submit" value="Send me a message" class="submit btn">
         </form>
     </div>
     <div class="footer colorWhite">
@@ -193,5 +191,6 @@
         
     </div>
 </body>
+<script src="js-files/contact.js"></script>
 
 </html>

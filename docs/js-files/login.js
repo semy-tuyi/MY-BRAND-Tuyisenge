@@ -1,37 +1,30 @@
+// form validation
+
 //login form elements
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 let loginForm = document.getElementById('login-form');
 
-console.log(loginForm)
 
 // add event to login form
-// loginForm is null why?
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     checkInputs();
 });
 
-// add event to sinup form
-
-
-
 function checkInputs(){
-    // trim to remove the whitespaces
-    const usernameValue = username.value.trim();
-    const passwordValue = password.value.trim();
-
+    const usernameValue = username.value;
+    const passwordValue = password.value;
+    
     if(usernameValue === ''){
         setErrorFor(username, 'Username cannot be blank');
-    }else{
-        setSuccessFor(username);
     }
 
     if(passwordValue === ''){
         setErrorFor(password, 'Password cannot be blank');
 
     }else{
-        setSuccessFor(password);
+       login();
     }
 }
 
@@ -46,4 +39,33 @@ function setErrorFor(input,message){
     const small = formControl.querySelector('small');
     formControl.className = 'form-control error';
     small.innerText = message;
+}
+
+
+// login
+// Add admin into local storage
+/*const Administrator = {
+    name:"admin2020",
+    password:'semysamy'
+};
+localStorage.setItem('Administrator', JSON.stringify(Administrator));*/
+
+// retrive admin infor from local storage
+
+function login(e){
+    // retrieve administrator properties
+    const admin = JSON.parse(localStorage.getItem("Administrator"));
+    
+    const usernameValue = username.value;
+    const passwordValue = password.value;
+    
+    let exist = () =>  admin.name == usernameValue && admin.password == passwordValue ;
+   
+    if(!exist()){
+        setErrorFor(username, "invalid credentials!");
+        setErrorFor(password, "Invalid credentials!");
+       
+    }else{
+        location.href = "admin.html";
+    }   
 }

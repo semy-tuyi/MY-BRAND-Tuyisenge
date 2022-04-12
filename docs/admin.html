@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css"/>
+    <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/aab1045ec6.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
 </head>
@@ -105,69 +106,9 @@
         <i class="fa fa-search col-s"></i>
     </div>
     <div class="post-content flex-col bg-3 margin">
-        <h3 class="char-size">Posts</h3>
-        <div class="post-list scrol">
-            <table>
-                <tr>
-                    <th class="mg-r char-size">No</th>
-                    <th class="mg-r char-size ">Article title</th>
-                    <th class="mg-r char-size">Post date</th>
-                    <th class="mg-r char-size">Comments</th>
-                    <th class="mg-r char-size">Likes</th>
-                    <th class="mg-r char-size">Views</th>
-                    <th class="mg-r char-size">Actions</th>
-                </tr>
-                <tr>
-                    <td class="mg-r char-size">1</td>
-                    <td class="mg-r char-size title-w">Good morning</td>
-                    <td class="mg-r char-size">20-03-2022</td>
-                    <td class="mg-r char-size">100 k</td>
-                    <td class="mg-r char-size">20</td>
-                    <td class="mg-r char-size">300</td>
-                    <td class="mg-r char-size">
-                        <i class="fa fa-pencil" id="edit"></i>
-                        <i class="fa fa-trash " id="delete"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mg-r char-size">1</td>
-                    <td class="mg-r char-size title-w">Good morning</td>
-                    <td class="mg-r char-size">20-03-2022</td>
-                    <td class="mg-r char-size">100 k</td>
-                    <td class="mg-r char-size">20</td>
-                    <td class="mg-r char-size">300</td>
-                    <td class="mg-r char-size">
-                        <i class="fa fa-pencil " id="edit"></i>
-                        <i class="fa fa-trash " id="delete"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mg-r char-size">1</td>
-                    <td class="mg-r char-size title-w">Good morning</td>
-                    <td class="mg-r char-size">20-03-2022</td>
-                    <td class="mg-r char-size">100 k</td>
-                    <td class="mg-r char-size">20</td>
-                    <td class="mg-r char-size">300</td>
-                    <td class="mg-r char-size">
-                        <i class="fa fa-pencil " id="edit"></i>
-                        <i class="fa fa-trash " id="delete"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mg-r char-size">1</td>
-                    <td class="mg-r char-size title-w">Good morning</td>
-                    <td class="mg-r char-size">20-03-2022</td>
-                    <td class="mg-r char-size">100 k</td>
-                    <td class="mg-r char-size">20</td>
-                    <td class="mg-r char-size">300</td>
-                    <td class="mg-r char-size">
-                        <i class="fa fa-pencil " id="edit"></i>
-                        <i class="fa fa-trash " id="delete"></i>
-                    </td>
-                </tr>
-                
-            </table>
-
+        <h3 class="char-size center">Posts</h3>
+        <div class="post-list  flex-row scrol" id="post-crud">
+           
         </div>
     </div>
     <div class="graphic-m  bg-1 width-m margin">
@@ -176,27 +117,32 @@
 </div>
 <!-- middle box3-->
 <div class="create-post box-m bg-2" id="create-post-box">
-    <form action="" method="post" class="center margin" >
+    <form action="#" method="#" class="center margin" id="article-form">
         <h2 class="col-p ">Write your article</h2>
         
-        <div class="margin">
-            <input type="text" name="title" id="" class="text-input" placeholder="Title">
+        <div class="margin form-control">
+            <input type="text" name="title" id="title" class="text-input" placeholder="Title">
+            <small>Error message</small>
         </div>
 
         
-        <div class="margin">
-            <input type="text" name="author" id="" class="text-input" placeholder="Author">
+        <div class="margin form-control">
+            <input type="text" name="author" id="author" class="text-input" placeholder="Author">
+            <small>Error message</small>
         </div>
 
         
-        <div class="margin height">
-            <textarea name="body" id="" cols="30" rows="10" class="text-input height-input" placeholder="Body"></textarea>
+        <div class="margin height form-control">
+            <textarea name="body" id="content" cols="30" rows="10" class="text-input height-input" placeholder="type your content here..."></textarea>
+            <!--<div id="content" class="text-input height-input"></div>-->
+            <small>Error message</small>
         </div>
-        <div class="margin">
-            <label for="image" class="col-p">upload an image</label>
-            <input type="file" name="blog-image" id="" class="">
+        <div class="margin form-control">
+            <label for="cover-image" class="col-p">upload an image</label>
+            <input type="file" name="blog-image" id="cover-image" class="">
+            <small>Error message</small>
         </div>
-        <div class="margin">
+        <div class="margin ">
             <input type="submit" value="UPLOAD" class="btn" >
         </div>
         
@@ -208,44 +154,7 @@
         <input type="text" name="search" placeholder="Search query..." class="srch">
         <i class="fa fa-search col-s"></i>
     </div>
-    <div class="query-content flex-col scrol">
-        
-        <div class="query-item bg-3 margin">
-            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
-            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
-            <div class="message margin">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
-                voluptatum quas nulla quam unde quo, repellat culpa, <br>
-                quibusdam in blanditiis iste architecto corrupti!
-            </div>
-            <i class="col-s margin">Reply</i>
-            
-        </div>
-        <div class="query-item bg-3 margin">
-            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
-            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
-            <div class="message margin">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
-                voluptatum quas nulla quam unde quo, repellat culpa, <br>
-                quibusdam in blanditiis iste architecto corrupti!
-            </div>
-            <i class="col-s margin">Reply</i>
-            
-        </div>
-        <div class="query-item bg-3 margin">
-            <label for="names" class="margin"><b>Names:</b>Tuyisenge</label> <br>
-            <label for="names" class="margin"><b>Email:</b>tuyisengesam6@gmail.com</label>
-            <div class="message">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Accusantium rem numquam eos quaerat suscipit illo reprehenderit <br>
-                voluptatum quas nulla quam unde quo, repellat culpa, <br>
-                quibusdam in blanditiis iste architecto corrupti!
-            </div>
-            <i class="col-s margin">Reply</i>
-            
-        </div>
+    <div class="query-content flex-col scrol" id="query-content">
        
     </div>
     <div class="graphic-m  bg-1 width-m temp">
@@ -260,7 +169,7 @@
             </div>
             <div class="recent-comments flex-row bg-3">
                 <h3 class="">Recent Comments</h3>
-                <div class="comment-content"></div>
+                <div class="comment-content scrol" id="recent-comment"></div>
             </div>
             <div class="subscription bg-3 margin center">
                 <h2 class="col-1 ">100 </h2>
@@ -268,7 +177,8 @@
             </div>
         </div>
     </div>
-    <script src="js-files/dashboard.js"></script>
+    <script src="js-files/dashboard.js">
+    </script>
+    
 </body>
-
 </html>
