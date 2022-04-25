@@ -137,3 +137,106 @@ function getDataFromTheEditor() {
 function showtext() {
     console.log(getDataFromTheEditor());
   }
+
+
+// other local storage hint
+CKEDITOR.replace("body");
+
+    if (localStorage.getItem("updateId")) {
+      let id = localStorage.getItem("updateId");
+
+      document.getElementById("cover").style.display = "none";
+      document.getElementById("submitBtn").value = "UPDATE";
+
+      var articles = JSON.parse(localStorage.getItem("articles"));
+      var articleToUpdate = articles.filter((item) => item.id == id);
+      articles = articles.filter((item) => item.id != id);
+
+      document.getElementById("title").value = articleToUpdate[0].title;
+      document.getElementById("body").value = articleToUpdate[0].body;
+      document.getElementById("tag").value = articleToUpdate[0].tag;
+
+      document
+        .getElementById("AddArticleForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const title = document.getElementById("title").value;
+          const body = CKEDITOR.instances.body.getData();
+          const tag = document.getElementById("tag").value;
+          const Article = {
+            id,
+            title,
+            body,
+            image: articleToUpdate[0].image,
+            tag,
+            comments: articleToUpdate[0].comments,
+            likes: articleToUpdate[0].likes,
+            postedDate: articleToUpdate[0].postedDate,
+          };
+
+          articles.push(Article);
+          localStorage.setItem("articles", JSON.stringify(articles));
+
+          window.open("./view-article.html", "self");
+        });
+    } else {
+      document.getElementById("file").required = "";
+      var image;
+      document.getElementById("file").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64String = reader.result
+            .replace("data:", "")
+            .replace(/^.+,/, "");
+          image = base64String;
+          // document.body.style.background = `url(data:image/png;base64,${base64String})`;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      document
+        .getElementById("AddArticleForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const title = document.getElementById("title").value;
+          const body = CKEDITOR.instances.body.getData();
+          const tag = document.getElementById("tag").value;
+
+          var today = new Date();
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+
+          today = dd + "/" + mm + "/" + yyyy;
+
+          const postedDate = today;
+          const Article = {
+            id: Math.floor(Math.random() * 1000000),
+            title,
+            body,
+            image: image,
+            tag,
+            comments: [],
+            likes: [],
+            postedDate,
+          };
+          var articles = JSON.parse(localStorage.getItem("articles") || "[]");
+          // Put the object into storage
+          articles.push(Article);
+          localStorage.setItem("articles", JSON.stringify(articles));
+          window.open("./view-article.html", "self");
+        });
+    
+      let 
+    if(data == null){
+      alert("incorect credentials")
+    }else if( dat.forEach(item => {
+      data.email === email && 
+    })){
+      location.assign('dashbord.html')
+    }else{
+      alert('data not found')
+
+    }

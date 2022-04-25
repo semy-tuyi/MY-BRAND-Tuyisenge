@@ -6,7 +6,8 @@ let commentBox = document.getElementById('comment-div');
 // comment form
 let submitComment = document.getElementById('commentForm');
 let content = document.getElementById('comment-box');
-
+//console.log(submitComment)
+//console.log(content);
 submitComment.addEventListener('submit', (e)=>{
     e.preventDefault();
     content = content.value;
@@ -21,18 +22,34 @@ function addComment(content){
     let today = new Date()
     let user = JSON.parse(localStorage.getItem('user'));
     let key = JSON.parse(localStorage.getItem('key'));
-    let article = JSON.parse(localStorage.getItem('articles'))[key].head;
+    let articles = JSON.parse(localStorage.getItem('articles'));
+    let article = articles.filter(item => item.id == key);
+    articles = articles.filter(item => item.id != key);
     let name = JSON.parse(localStorage.getItem('subscribers'))[user].fname;
-   
-    let comments = JSON.parse(localStorage.getItem('comments')) || [];
-    comments.push({
+    
+    let comment = article[0].comments;
+
+    comment.push({
         name,
         today,
-        article,
         content,
     })
+    console.log('this array after push',comment)
 
-    localStorage.setItem("comments", JSON.stringify(comments));
+    let Article = {
+        id:key,
+         head:article[0].head,
+         author:article[0].author,
+         coverImage:article[0].coverImage,
+         body:article[0].body,
+         likes:article[0].likes,
+         comments:comment,
+     }
+     console.log(Article);
+     articles.push(Article);
+         
+     localStorage.setItem("articles", JSON.stringify(articles));
+
 }
 //show and hide of comment box 
 function showCommentBox(){
@@ -59,12 +76,40 @@ function displayArticle(){
     const articles = JSON.parse(localStorage.getItem('articles'));
     const id = JSON.parse(localStorage.getItem('key'));
 
+    let article = articles.filter( item => item.id === id);
+
     convas.innerHTML = `
-    <h2 clss= "sized"> ${articles[id].head} </h2>
-    <div for="author" class="col-primary center">Author ${articles[id].author}  </div>
+    <h2 clss= "sized"> ${article[0].head} </h2>
+    <div for="author" class="col-primary center">Author ${article[0].author}  </div>
     <img src="images/blog.jpg"  class="blog-image ">
-    ${articles[id].body} 
+    <p>
+    ${article[0].body}
+    </p>
+    <div class="col-secondary  center">
+                <i class="fa fa-thumbs-o-up padding"> Likes:${article[0].likes} </i>
+                <i class="fa fa-comment padding" id="comment-icon"> Comment: ${article[0].comments.length} </i>
+            </div>
         `;
-    //localStorage.removeItem('key');
 }
 
+// display comments on blog
+let blogComments = () =>{
+    let key = JSON.parse(localStorage.getItem('key'));
+    let articles = JSON.parse(localStorage.getItem('articles'));
+    let article = articles.filter(item => item.id == key);
+    let comments = article[0].comments;
+
+    const board = document.getElementById('comm');
+
+    comments.forEach(element => {
+        board.innerHTML += `
+        <div>
+            <p><b>${element.name} </b> Commented <br>
+            ${element.today} <br>
+            ${element.content}</p>
+        </div>
+        `;
+    });
+   
+};
+blogComments();

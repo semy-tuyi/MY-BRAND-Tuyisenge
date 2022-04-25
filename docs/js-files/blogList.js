@@ -10,7 +10,7 @@ function displayArticleList(){
     for(let i=0; i<articles.length; i++){
 
     list.innerHTML += `
-    <div class="card card-sized" id="${i}">
+    <div class="card card-sized" id="${articles[i].id}">
         <h2 class="center">${articles[i].head}</h2>
         <P class="col-primary">Author: ${articles[i].author}</P>
         <img class="" src="images/blog.jpg" alt="article-picture"/>

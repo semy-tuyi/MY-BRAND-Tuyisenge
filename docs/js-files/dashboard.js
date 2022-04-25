@@ -1,4 +1,7 @@
-
+posts();
+query();
+comments();
+let update = false;
 // try to access divs from dash board middile divisions to switched on a click
 let dashboardDiv = document.getElementById('dashboard-box');
 let postDiv = document.getElementById('posts-box');
@@ -56,17 +59,18 @@ queryMenu.addEventListener('click', ()=>{
 });
 
 // getting form elements for creating new article
+//CKEDITOR.replace('content');
 
-ClassicEditor.create(document.querySelector("#content"))
+/*ClassicEditor.create(document.querySelector("#content"))
   .catch((error) => {
     console.error(error);
-  });
+  });*/
 let title = document.getElementById('title');
 let authorName = document.getElementById('author');
 let content = document.getElementById('content');
+//let content = CKEDITOR.instances.body.getData();
 let coverImage = document.getElementById('cover-image');
 let articleForm = document.getElementById('article-form');
-
 
 // add event to form
 articleForm.addEventListener('submit', (e) => {
@@ -81,7 +85,6 @@ function checkInputs(){
     const authorNameValue = authorName.value;
     const contentValue = content.value;
     const coverImageFile = coverImage.value;
-    const likes = 0;
     
     if(titleValue === ''){
         setErrorFor(title, 'Title can not be blank');
@@ -91,14 +94,21 @@ function checkInputs(){
         setErrorFor(content, "content field cannot be blank")
 
     }else{
-        addArticle(titleValue, authorNameValue, contentValue, coverImageFile, likes);
-        title.value = '';
-        authorName.value = '';
-        content.value = '';
+       if(update){
+        updateArticle(titleValue, authorNameValue, contentValue)
+        alert('article updated successfully!');
+        location.reload()
+       }else{
+            addArticle(titleValue, authorNameValue, contentValue, coverImageFile);
+            title.value = '';
+            authorName.value = '';
+            content.value = '';
+            location.reload()
+       }
+       
         
     }
 }
-
 function setSuccessFor(input){
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
@@ -113,62 +123,33 @@ function setErrorFor(input, message){
 
 // save article into local storage
 /*const Article = {
-    head:'sdf',
-    author:'ds',
-    body:'ds',
-    coverPhoto:'sd'
+    head:string,
+    author:string,
+    body:string,
+    coverPhoto:string,
     likes: number
+    comments:[]
 };*/
 
 const articles = JSON.parse(localStorage.getItem("articles")) || [];
-console.log(articles[7].coverImage)
-const addArticle = (head, author, body, coverImageFile, likes) => {
-    let Art = {
+
+const addArticle = (head, author, body) => {
+     let Article = {
+       id:Math.floor(Math.random() * 10000),
         head,
         author,
         coverImage,
         body,
-        likes,
+        likes:0,
+        comments:[],
     }
-    /*coverImage.addEventListener('change',(e) => {
-            
-        const reader = new FileReader()
-        const file = e.target.files[0];
-        reader.readAsDataURL(file);
-        reader.addEventListener('load', () => {
-        Art['coverImage'] = reader.result
-            console.log(Art['coverImage']);
-        });
-        //console.log(img)
-    
-    });*/
-    articles.push(Art);
+    articles.push(Article);
 	    
     localStorage.setItem("articles", JSON.stringify(articles));
     alert('A post added successfully!! :(');
-
+    location.reload();
 };
 
-
-  let Art = {
-        head:'head',
-        author:'author',
-        coverImage,
-        body:'body',
-        likes:"5",
-    }
-    coverImage.addEventListener('change',(e) => {
-            
-        const reader = new FileReader()
-        const file = e.target.files[0];
-        reader.readAsDataURL(file);
-        reader.addEventListener('load', () => {
-        Art['coverImage'] = reader.result
-            console.log(Art['coverImage']);
-        });
-        //console.log(img)
-    
-    });
 /*
 function imgStr(){
     coverImage.addEventListener('change',(e) => {
@@ -210,22 +191,23 @@ function posts(){
 
     for(let i=0; i<articles.length; i++){
 
-    list.innerHTML += `
-    <div class="card card-sized" id="${i}">
-        <h2 class="center">${articles[i].head}</h2>
-        <P class="col-primary">Author: ${articles[i].author}</P>
-        <img class="" src="images/blog.jpg" alt="article-picture"/>
-        <div>
-            <button class="update" id="update">Update</button>
-            <button class="delete" id="delete"> Delete</button>
+        list.innerHTML += `
+        <div class="card card-sized" id="${articles[i].id}">
+            <h2 class="center">${articles[i].head}</h2>
+            <P class="col-primary">Author: ${articles[i].author}</P>
+            <img class="" src="images/blog.jpg" alt="article-picture"/>
+            <div>
+                <button class="update" id="update">Update</button>
+                <button class="delete" id="delete"> Delete</button>
+            </div>
+            <p>
+            ${articles[i].body} 
+            </p>
+            
         </div>
-        <p>
-        ${articles[i].body} 
-        </p>
-        
-    </div>
 
-    `;
+        `;
+       
 
     }
     let cards = document.querySelectorAll('.card');
@@ -235,51 +217,68 @@ function posts(){
         card.addEventListener('click', () => {
             key = card.id;
             localStorage.setItem('key',key);
-            //console.log(key);
-            //location.assign('./blog.html');
-
         })
     })
 
 }
+const updateButton = document.querySelectorAll('.update')
+const deleteButton = document.querySelectorAll('.delete');
 
-const updateBtn = document.querySelectorAll('.update');
-const deleteBtn = document.querySelectorAll('.delete');
-/*updateBtn.forEach(btn =>{
+updateButton.forEach(btn =>{
     btn.addEventListener('click', ()=>{
+        update = true;
+        
+        postDiv.style.display = "none";
+        createPostDiv.style.display = "block";
+        document.getElementById('upload').value = "UPDATE";
         updateArticle();
-    });
-})*/
-
-deleteBtn.forEach( btn => {
-    btn.addEventListener('click', () =>{
-        deleteArticle();
-        alert('Article deleted successfully!! :(');
     });
 })
 
-// function to delete article
-function deleteArticle(){
+deleteButton.forEach( btn => {
+    btn.addEventListener('click', () =>{
+        deleteArticle();
+    });
+});
+
+//function to delete article
+let deleteArticle = () =>{
     const articles = JSON.parse(localStorage.getItem('articles'));
     const key = JSON.parse(localStorage.getItem('key'));
-    articles.splice(key,1);
-    return localStorage.setItem("articles", JSON.stringify(articles));
+    let article = articles.filter( item => item.id === key)[0];
+    let index = articles.indexOf(article);
+    articles.splice(index,1);
+    localStorage.setItem("articles", JSON.stringify(articles));
+    alert('Article deleted successfully')
+    location.reload()
 }
 
 // function to update article
-/*function updateArticle(){
-    const articles = JSON.parse(localStorage.getItem('articles'));
+let updateArticle = (head, author, body) => {
+
+    let articles = JSON.parse(localStorage.getItem('articles'));
     const key = JSON.parse(localStorage.getItem('key'));
-    console.log(title);
-    title.value = articles[key].head;
-    authorName.value = articles[key].author;
-    content.innerText = `${articles[key].body}`;  
-    console.log(content.innerText);
-    //coverImage.value = articles[key].coverImage;
+    let article = articles.filter( item => item.id === key);
+    articles = articles.filter(item => item.id != key);
     
-    postDiv.style.display = "none";
-    createPostDiv.style.display = "block";
-}*/
+    console.log(article[0].head);
+     document.getElementById('title').value = article.head;
+     document.getElementById('author').value = article.author;
+     document.getElementById('content').value = article.body;  
+
+    let Article = {
+        id:key,
+         head,
+         author,
+         coverImage:article[0].coverImage,
+         body,
+         likes:article[0].likes,
+         comments:article[0].comments,
+     }
+     articles.push(Article);
+         
+     localStorage.setItem("articles", JSON.stringify(articles));
+}
 
 
 // DISPLAY QUERY ON DASHBOARD
@@ -310,8 +309,8 @@ function comments(){
     let list = document.getElementById('recent-comment');
     const comments = JSON.parse(localStorage.getItem('comments'));
     // loop through comments
-
-    for(let i=0; i<comments.length; i++){
+    let l = comments.length;
+    for(let i=0; i<l; i++){
 
     list.innerHTML += `
             <div class="query-item bg-3 margin">
@@ -324,6 +323,3 @@ function comments(){
     }
 }
 
-posts();
-query();
-comments();

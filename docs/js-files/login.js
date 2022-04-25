@@ -44,11 +44,13 @@ function setErrorFor(input,message){
 
 // login
 // Add admin into local storage
-/*const Administrator = {
-    name:"admin2020",
+/*
+const Administrator = {
+    name:"admin2022",
     password:'semysamy'
 };
-localStorage.setItem('Administrator', JSON.stringify(Administrator));*/
+localStorage.setItem('Administrator', JSON.stringify(Administrator));
+*/
 
 // retrive admin infor from local storage
 
