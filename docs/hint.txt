@@ -240,3 +240,17 @@ CKEDITOR.replace("body");
       alert('data not found')
 
     }
+
+
+ npm install --save mocha chai
+$ npm install --save request
+$ npm install --save express
+
+$ npx mocha --reporter spec
+
+dont use touch to create file in vscode instead
+
+code -r newFile.js
+
+to opeen an existing file use the command
+code -r fileName.js

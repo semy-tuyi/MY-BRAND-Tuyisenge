@@ -1,4 +1,4 @@
-displayArticleList();
+//displayArticleList();
 
 let contactNames = document.getElementById('names')
     emailAddress = document.getElementById('email')
@@ -10,10 +10,11 @@ contactForm.addEventListener('submit', e =>{
     checkInputs();
 });
 
-function checkInputs(){
+const  checkInputs = () => {
    const contactNamesValue = contactNames.value;
    const emailAddressValue = emailAddress.value;
    const contactMessageValue = contactMessage.value;
+
     if(contactNamesValue === '' && emailAddressValue === ''){
         setErrorFor(contactNames, 'Names and Email cannot be blank');
     }else if(contactNamesValue === ''){
@@ -29,15 +30,14 @@ function checkInputs(){
         emailAddress.value = '';
         contactMessage.value = '';
     }
-   
 }
 
-function setSuccessFor(input){
+const  setSuccessFor = (input) => {
     const formDiv = input.parentElement;
     formDiv.classList += 'success';
 }
 
-function setErrorFor(input, msg){
+const setErrorFor = (input, msg) =>{
  const formDiv = input.parentElement;
  const small = formDiv.querySelector('small');
  formDiv.classList += ' error';
@@ -46,6 +46,7 @@ function setErrorFor(input, msg){
 }
 
 // send query
+/*
 const query = JSON.parse(localStorage.getItem("queries")) || [];
 const sendQuery = (name, email,content ) => {
 
@@ -58,6 +59,33 @@ const sendQuery = (name, email,content ) => {
 
     localStorage.setItem("queries", JSON.stringify(query));
      alert('Message sent successfully!! :(');
+
+};*/
+const sendQuery = (names, email, message) => {
+    let reqHeader = new Headers();
+    reqHeader.append("Content-type", "application/json");
+
+    let raw = JSON.stringify({
+        "name": names,
+        "email": email,
+        "message": message
+        
+    });
+
+    let requestOptions = {
+        method:'POST',
+        headers:reqHeader,
+        body: raw,
+        
+    };
+
+    fetch("https://tsamuel-brand-app.herokuapp.com/query", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+       console.log(result);
+        alert("Message sent! ")
+    })
+    .catch(error => console.log('error', error));
 
 };
 
