@@ -1,6 +1,6 @@
 
 const id = localStorage.getItem('articleToRead');
-console.log(id);
+//console.log(id);
 
 //window.onload = 
 const displayArticle = () =>{
@@ -24,7 +24,7 @@ const displayArticle = () =>{
           </p>
           <div class="col-secondary  center">
                       <i class="fa fa-thumbs-o-up padding"> Likes: </i>
-                      <i class="fa fa-comment padding" id="comment-icon"> Comment:  </i>
+                      <i class="fa fa-comment padding" id="icon"> Comment:  </i>
                   </div>
               `;
         })
@@ -55,7 +55,7 @@ submitComment.addEventListener('submit', (e)=>{
 //show and hide of comment box 
 function showCommentBox(){
     let commentBox = document.getElementById('comment-div');
-    let commentBtn = document.getElementById('comment-icon');
+    let commentBtn = document.getElementById('icon');
         
     commentBox.style.display = 'none';
 

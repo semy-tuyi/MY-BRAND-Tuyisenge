@@ -175,6 +175,9 @@ body{
     width: 30%;
     border-color:#f0f0f0;
 }
+.convas{
+    min-height: 500px;
+}
 .char{
     font-size: 3rem;
 }
@@ -348,7 +351,7 @@ body{
 .card-sized{
     font-size:1em;
     max-width:90%;
-    height: 300px;
+    height: 600px;
     margin:5%;
     border: #8888 1px solid; 
     overflow: hidden;
@@ -448,7 +451,7 @@ body{
     .card-sized{
         font-size:1em;
         max-width:350px;
-        max-height: 400px;
+        max-height: 600px;
         margin:10px;
         padding-block: 20px;
         border: #8888 1px solid; 
@@ -480,6 +483,7 @@ body{
         flex-flow:row wrap;
         justify-content:space-around;
         padding:10px;
+        min-height: 500px;
     }
     .form-div small{
         left: 15rem;
