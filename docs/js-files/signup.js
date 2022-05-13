@@ -185,7 +185,9 @@ const checkSubscriber = (email, password) => {
         console.log(result.user)
         
         if(result.success){
+
             localStorage.setItem("logedInUser", JSON.stringify(result.user));
+            
             if (result.user.role == "admin"){
                 location.href = "./admin.html";
             }else{

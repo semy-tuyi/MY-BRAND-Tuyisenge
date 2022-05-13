@@ -1,13 +1,48 @@
+
+const id = localStorage.getItem('articleToRead');
+console.log(id);
+
+//window.onload = 
+const displayArticle = () =>{
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch(`https://tsamuel-brand-app.herokuapp.com/article/${id}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          //article = result;
+            console.log(result);
+          let convas = document.getElementById('convas');
+          convas.innerHTML = `
+          <h2 clss= "sized"> ${result.title} </h2>
+          <div for="author" class="col-primary center">Author ${result.authorName}  </div>
+          <img src="images/blog.jpg"  class="blog-image ">
+          <p>
+          ${result.content}
+          </p>
+          <div class="col-secondary  center">
+                      <i class="fa fa-thumbs-o-up padding"> Likes: </i>
+                      <i class="fa fa-comment padding" id="comment-icon"> Comment:  </i>
+                  </div>
+              `;
+        })
+        .catch(error => console.log('error', error));
+    
+};
+
 displayArticle();
-showCommentBox();
+
+
 
 let commentBox = document.getElementById('comment-div');
 
 // comment form
 let submitComment = document.getElementById('commentForm');
 let content = document.getElementById('comment-box');
-//console.log(submitComment)
-//console.log(content);
+
+
 submitComment.addEventListener('submit', (e)=>{
     e.preventDefault();
     content = content.value;
@@ -17,8 +52,26 @@ submitComment.addEventListener('submit', (e)=>{
     
 })
 
+//show and hide of comment box 
+function showCommentBox(){
+    let commentBox = document.getElementById('comment-div');
+    let commentBtn = document.getElementById('comment-icon');
+        
+    commentBox.style.display = 'none';
+
+    commentBtn.addEventListener('click' ,function (){
+        if(commentBox.style.display === 'none'){
+            commentBox.style.display = 'block';
+
+        }else{
+            commentBox.style.display = 'none';
+        }
+    }); 
+
+}
+showCommentBox();
 // function to add comment
-function addComment(content){
+/*function addComment(content){
     let today = new Date()
     let user = JSON.parse(localStorage.getItem('user'));
     let key = JSON.parse(localStorage.getItem('key'));
@@ -50,9 +103,9 @@ function addComment(content){
          
      localStorage.setItem("articles", JSON.stringify(articles));
 
-}
+}*/
 //show and hide of comment box 
-function showCommentBox(){
+/*function showCommentBox(){
     let commentBox = document.getElementById('comment-div');
     let commentBtn = document.getElementById('comment-icon');
         
@@ -67,31 +120,30 @@ function showCommentBox(){
         }
     }); 
 
-}
+}*/
 
-// retrieve article from local storage
-function displayArticle(){
+/*function displayArticle(){
     let convas = document.getElementById('convas');
 
-    const articles = JSON.parse(localStorage.getItem('articles'));
-    const id = JSON.parse(localStorage.getItem('key'));
+    //const articles = JSON.parse(localStorage.getItem('articles'));
+    //const id = JSON.parse(localStorage.getItem('key'));
 
-    let article = articles.filter( item => item.id === id);
+    //let article = articles.filter( item => item.id === id);
 
     convas.innerHTML = `
-    <h2 clss= "sized"> ${article[0].head} </h2>
-    <div for="author" class="col-primary center">Author ${article[0].author}  </div>
+    <h2 clss= "sized"> ${article.title} </h2>
+    <div for="author" class="col-primary center">Author ${article.authorName}  </div>
     <img src="images/blog.jpg"  class="blog-image ">
     <p>
-    ${article[0].body}
+    ${article.content}
     </p>
     <div class="col-secondary  center">
-                <i class="fa fa-thumbs-o-up padding"> Likes:${article[0].likes} </i>
-                <i class="fa fa-comment padding" id="comment-icon"> Comment: ${article[0].comments.length} </i>
+                <!--<i class="fa fa-thumbs-o-up padding"> Likes: </i>
+                <i class="fa fa-comment padding" id="comment-icon"> Comment:  </i>-->
             </div>
         `;
-}
-
+}*/
+/*
 // display comments on blog
 let blogComments = () =>{
     let key = JSON.parse(localStorage.getItem('key'));
@@ -112,4 +164,4 @@ let blogComments = () =>{
     });
    
 };
-blogComments();
+blogComments();*/

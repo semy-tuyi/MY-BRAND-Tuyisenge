@@ -105,11 +105,21 @@
         <input type="text" name="search" placeholder="Search post..." class="srch">
         <i class="fa fa-search col-s"></i>
     </div>
-    <div class="post-content flex-col bg-3 margin">
+    <div class="post-content flex-col bg-3 margin scrol">
         <h3 class="char-size center">Posts</h3>
-        <div class="post-list  flex-row scrol" id="post-crud">
+        
+            <table id="post-crud">
+                <thead class="char-size ">
+                    <th class="">Artice ID </th>
+                    <th class="">Title</th>
+                    <th class="">Author</th>
+                    <th class="">Date</th>
+                    <th class="">Actions</th>
+                </thead>
+            </table>
+            
            
-        </div>
+        
     </div>
     <div class="graphic-m  bg-1 width-m margin">
         <img src="images/undraw_personal_settings_re_i6w4.svg" alt="personal-settings">
@@ -118,7 +128,7 @@
 <!-- middle box3-->
 <div class="create-post box-m bg-2" id="create-post-box">
     <form action="#" method="#" class="center margin" id="article-form">
-        <h2 class="col-p ">Write your article</h2>
+        <h2 class="col-p " id="cover">Write your article</h2>
         
         <div class="margin form-control">
             <input type="text" name="title" id="title" class="text-input" placeholder="Title">
@@ -178,7 +188,67 @@
         </div>
     </div>
     <script src="js-files/dashboard.js"></script>
-    <script src="./assets/ckeditor/ckeditor.js"></script>
-    
+    <!--<script src="./assets/ckeditor/ckeditor.js"></script>-->
+    <script>
+        retrieveArticles();
+        retrieveQuery();
+
+let dashboardDiv = document.getElementById('dashboard-box');
+let postDiv = document.getElementById('posts-box');
+let createPostDiv = document.getElementById('create-post-box');
+let queryDiv = document.getElementById('query-box');
+
+// access dashboard menu
+let dashboardMenu = document.getElementById('dashboard-menu');
+let postMenu = document.getElementById('posts-menu');
+let newPostMenu = document.getElementById('new-post-menu');
+let queryMenu = document.getElementById('query-menu');
+
+// default displaying of box-m divs
+dashboardDiv.style.display = "block";
+postDiv.style.display = "none";
+createPostDiv.style.display = "none";
+queryDiv.style.display = "none";
+
+// add event to menu
+dashboardMenu.addEventListener('click', ()=>{
+    if(dashboardDiv.style.display === 'none'){
+        dashboardDiv.style.display = 'block';
+
+        postDiv.style.display = 'none';
+        createPostDiv.style.display = 'none';
+        queryDiv.style.display = 'none';
+    }
+});
+postMenu.addEventListener('click',()=>{
+    if(postDiv.style.display === 'none'){
+        postDiv.style.display = 'block';
+        //retrieveArticles();
+        dashboardDiv.style.display = 'none';
+        createPostDiv.style.display = 'none';
+        queryDiv.style.display = 'none';
+    }
+});
+newPostMenu.addEventListener('click',  ()=>{
+    if(createPostDiv.style.display === 'none'){
+        createPostDiv.style.display = 'block';
+        
+        postDiv.style.display = 'none';
+        dashboardDiv.style.display = 'none';
+        queryDiv.style.display = 'none';
+    }
+});
+queryMenu.addEventListener('click', ()=>{
+    if(queryDiv.style.display === 'none'){
+        queryDiv.style.display = 'block';
+        //retrieveQuery();
+
+        createPostDiv.style.display = 'none';
+        postDiv.style.display = 'none';
+        dashboardDiv.style.display = 'none';
+    }
+});
+
+    </script>
 </body>
 </html>

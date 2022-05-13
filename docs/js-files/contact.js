@@ -82,8 +82,8 @@ const sendQuery = (names, email, message) => {
     fetch("https://tsamuel-brand-app.herokuapp.com/query", requestOptions)
     .then(response => response.json())
     .then(result => {
-       console.log(result);
-        alert("Message sent! ")
+       //console.log(result);
+        alert("Message sent! ");
     })
     .catch(error => console.log('error', error));
 
