@@ -42,6 +42,21 @@ const retrieveBlogs = () => {
     const readMore = article => {
         localStorage.setItem('articleToRead', article);
       }
+      const logedInUser = JSON.parse(localStorage.getItem("logedInUser")) || [];
+      if (logedInUser.role) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "block";
+        //document.getElementById('username').innerHTML = loginedUser.username
+      }else{
+          document.getElementById("login").style.display = "block";
+        document.getElementById("logout").style.display = "none";
+      }
+      const logout = () => {
+        localStorage.removeItem("logedInUser");
+        document.getElementById("login").style.display = "block";
+        document.getElementById("logout").style.display = "none";
+       
+      };
 /*
     list.innerHTML += `
     <div class="card card-sized" id="${articles[i].id}">

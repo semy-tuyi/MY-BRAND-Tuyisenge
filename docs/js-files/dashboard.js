@@ -280,5 +280,11 @@ const deleteQuery = (id) => {
         })
         .catch(error => console.log('error', error));
 }  
-        
+
+
+const logout = () => {
+  localStorage.removeItem("logedInUser");
+  console.log('you are logout')
+  location.reload();
+};
   
