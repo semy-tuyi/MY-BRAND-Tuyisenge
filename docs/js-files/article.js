@@ -20,7 +20,7 @@ const displayArticle = () =>{
           <div for="author" class="col-primary center">Author ${result.authorName}  </div>
           <img src="images/blog.jpg"  class="blog-image ">
           <p>
-          ${result.content}
+          ${result.content} 
           </p>
           <div class="col-secondary  center">
                       <i class="fa fa-thumbs-o-up padding"> Likes: </i>
